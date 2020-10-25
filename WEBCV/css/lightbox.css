@@ -1,0 +1,97 @@
+.gallery li span {
+  font-weight: bolder;
+  font-size: larger;
+  display: block;
+  width: 120px;
+  height: 120px;
+  background-color: rgba(200, 200, 200, 0.5);
+  border-radius: 50%;
+  position: absolute;
+  top: 0;
+  text-align: center;
+  line-height: 120px;
+  color: #333;
+  text-shadow: 1px 1px 1px #ddd;
+  opacity: 0;
+  transform: scale(0) rotate(0);
+  transition: 0.3s;
+}
+
+.gallery li a:hover span {
+  opacity: 1;
+  transform: scale(1) rotate(360deg);
+}
+
+.clear {
+  clear: both;
+}
+
+/* overlay */
+.overlay {
+  position: fixed;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+  top: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0);
+  z-index: 999;
+  transition: 0.6s;
+  text-align: center;
+  padding: 100px 0;
+}
+
+.overlay:target {
+  width: auto;
+  height: auto;
+  bottom: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.8);
+}
+
+.overlay img {
+  max-height: 100%;
+  box-shadow: 2px 2px 7px rgba(0, 0, 0, 0.7);
+}
+
+.overlay:target img {
+  animation: zoomDanFade 1s;
+}
+
+.overlay .close {
+  position: absolute;
+  top: 60px;
+  left: 70%;
+  color: white;
+  font-weight: normal;
+  text-decoration: none;
+}
+
+.overlay:target .close {
+  animation: slideDownFade 1s;
+}
+
+/* animasi */
+@keyframes zoomDanFade {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes slideDownFade {
+  0% {
+    opacity: 0;
+    margin-top: -20px;
+  }
+
+  100% {
+    opacity: 1;
+    margin-top: 0;
+  }
+}
